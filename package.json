@@ -1,0 +1,24 @@
+{
+  "name": "flux-bkl",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Simulateur de flux Backlight en réseau local et sur desktop",
+  "type": "module",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "start": "node server/server.mjs",
+    "desktop": "electron .",
+    "dist:win": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "fr.backlight.flux",
+    "productName": "Flux Backlight",
+    "files": ["desktop/**", "server/**", "web/**", "package.json"],
+    "directories": {"output": "dist"},
+    "win": {"target": "nsis"}
+  }
+}
